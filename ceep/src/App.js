@@ -11,8 +11,15 @@ class App extends Component{
       notas:[]
     }
   }
-  criarnota(titulo, texto, color, colortext){
-    const novaNota =  {titulo, texto, color, colortext};
+  criarnota(titulo, texto, color, colortext, prioridade){
+    let priority = "";
+    if(prioridade === ""){
+      priority = "1"
+    }else{
+      priority = prioridade; 
+    } 
+
+    const novaNota =  {titulo, texto, color, colortext, priority};
     const novoArraydenotas =[...this.state.notas, novaNota];
     const novoestado = {
       notas:novoArraydenotas

@@ -8,6 +8,7 @@ import './style.css';
     this.texto= "";
     this.color = "";
     this.colortext = "";
+    this.prioridade = "";
   }
 
   _handleMudancaTitulo(evento){
@@ -30,16 +31,28 @@ import './style.css';
     evento.stopPropagation();
   }
 
+  
+  _handleprioridade(evento){
+    this.prioridade = evento.target.value;
+    evento.stopPropagation();
+  }
   _criarnota(evento){
     evento.preventDefault();
     evento.stopPropagation();
-    this.props.criarnota(this.titulo, this.texto , this.color ,  this.colortext);
+    this.props.criarnota(this.titulo, this.texto , this.color ,  this.colortext , this.prioridade);
   }
+
     render(){
         return(
             <form className="form-cadastro" onSubmit={this._criarnota.bind(this)}>
             <input type="text" placeholder='Título' className="form-cadastro_input" onChange={this._handleMudancaTitulo.bind(this)}/>
             <textarea rows={15} placeholder='Escreva a sua nota...' className="form-cadastro_input" onChange={this._handleMudancaTexto.bind(this)}></textarea>
+            <label>Defina Prioridade</label>
+            <select name="prioridade" onChange={this._handleprioridade.bind(this)}>
+            <option value="1">Urgente</option>
+            <option value="2">Mediana</option>
+            <option value="3">Baixa</option>
+            </select> 
             <div className='colors'>
             <label>Cor da Nota         
             <input type="color"  onChange={this._handlecolor.bind(this)}/>
