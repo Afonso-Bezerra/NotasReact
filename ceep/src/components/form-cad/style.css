@@ -27,8 +27,38 @@
 .form-cadastro_submit:active{
     background-color: var(--secundaria-ativa);
 }
+.cornota{
+    display: flex;
+    justify-content: center;
+}
 
-.form-cadastro_color{
+.colors input{
+    display:flex;
+    margin-left: 25px;
+    border:none;
+    background-color: transparent;
+    border-radius: 40px; 
+    height: 32px;
+    padding: 0;
+    width: 30px;
+    outline: 0;
+    transition: all 1s;
+    margin-bottom: 8px;
+}
+  .colors input::-webkit-color-swatch {
+   border-radius: 40px;
+  }
+  .colors input::-moz-color-swatch {
+    border-radius: 40px;
+  }
+
+  .colors label{
+      color: rgba(107, 107, 107, 0.707);
+  }
+.colors{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
     margin-top: 8px;
-    align-self:flex-end;
+    
 }
