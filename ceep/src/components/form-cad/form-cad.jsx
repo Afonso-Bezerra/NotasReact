@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import './style.css';
+import { FaFlag } from "react-icons/fa";
+
  class FormularioCad extends Component{
 
   constructor(props){
@@ -34,6 +36,14 @@ import './style.css';
   
   _handleprioridade(evento){
     this.prioridade = evento.target.value;
+    const select = document.getElementById('colorselect')
+    if(this.prioridade ===  '1'){
+      select.style.color = 'red'
+    }else if(this.prioridade === '2'){
+      select.style.color = 'blue';
+    }else if(this.prioridade === '3'){
+      select.style.color = 'green';
+    }
     evento.stopPropagation();
   }
   _criarnota(evento){
@@ -42,16 +52,18 @@ import './style.css';
     this.props.criarnota(this.titulo, this.texto , this.color ,  this.colortext , this.prioridade);
   }
 
+  
+
     render(){
         return(
             <form className="form-cadastro" onSubmit={this._criarnota.bind(this)}>
             <input type="text" placeholder='Título' className="form-cadastro_input" onChange={this._handleMudancaTitulo.bind(this)}/>
             <textarea rows={15} placeholder='Escreva a sua nota...' className="form-cadastro_input" onChange={this._handleMudancaTexto.bind(this)}></textarea>
             <label>Defina Prioridade</label>
-            <select name="prioridade" onChange={this._handleprioridade.bind(this)}>
-            <option value="1">Urgente</option>
-            <option value="2">Mediana</option>
-            <option value="3">Baixa</option>
+            <select name="prioridade" className="select_prioridade" id='colorselect' onChange={this._handleprioridade.bind(this)}>
+            <option value="1" id='urgente'> Urgente</option>
+            <option value="2" id='mediana'>Mediana</option>
+            <option value="3" id='baixa'>Baixa</option>
             </select> 
             <div className='colors'>
             <label>Cor da Nota         

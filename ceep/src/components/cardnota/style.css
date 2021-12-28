@@ -25,3 +25,10 @@
     font-size: 1.2em;
     margin-right: 12px;
   }
+
+  #icon{
+    display: flex;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-bottom: 12px;
+  }
